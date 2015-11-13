@@ -26,7 +26,7 @@ public class ReceiverActivityOnCreate extends CordovaActivity{
 
 @Override
     public void onCreate(Bundle savedInstanceState) {
-		appView.loadUrl("javascript:alert('A22')");
+		appView.loadUrl("javascript:alert('A22');");
         Intent intent = getIntent();
         String action = intent.getAction();
         String type = intent.getType();
@@ -36,7 +36,7 @@ public class ReceiverActivityOnCreate extends CordovaActivity{
 
                 String[] s = intent.getStringArrayExtra(Intent.EXTRA_TEXT);
 				if(s!=null)
-					appView.loadUrl("javascript:alert('" + s[0] + "')");
+					appView.loadUrl("javascript:alert('" + s[0] + "');");
             } else if (type.startsWith("image/")) {
                 ArrayList<Uri> uri = (ArrayList) intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
                 /*for (int i = 0; i < uri.length; i++) {*/
@@ -54,7 +54,7 @@ public class ReceiverActivityOnCreate extends CordovaActivity{
 
                 String s = intent.getStringExtra(Intent.EXTRA_TEXT);
                 //t.setText(s);
-				appView.loadUrl("javascript:alert('" + s + "')");
+				appView.loadUrl("javascript:alert('" + s + "');");
             } else if (type.startsWith("image/")) {
 				  Uri uri = (Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM);
  //               Log.d("URIIIII", "Thus is" + uri.toString());

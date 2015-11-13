@@ -27,7 +27,7 @@ public class ReceiverActivity extends CordovaPlugin {
     
     @Override
     public void onNewIntent(Intent intent) {
-                    this.webView.loadUrl("javascript:alert('A23')");
+                    this.webView.loadUrl("javascript:alert('A23');");
 	String action = intent.getAction();
         String type = intent.getType();
 
@@ -36,7 +36,7 @@ public class ReceiverActivity extends CordovaPlugin {
 
                 String[] s = intent.getStringArrayExtra(Intent.EXTRA_TEXT);
 				if(s!=null)
-					this.webView.loadUrl("javascript:alert(' " + s[0] + "')");
+					this.webView.loadUrl("javascript:alert(' " + s[0] + "');");
             } else if (type.startsWith("image/")) {
                 ArrayList<Uri> uri = (ArrayList) intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
                 /*for (int i = 0; i < uri.length; i++) {*/
@@ -54,7 +54,7 @@ public class ReceiverActivity extends CordovaPlugin {
 
                 String s = intent.getStringExtra(Intent.EXTRA_TEXT);
                 //t.setText(s);
-				this.webView.loadUrl("javascript:alert(' " + s + "')");
+				this.webView.loadUrl("javascript:alert(' " + s + "');");
             } else if (type.startsWith("image/")) {
 				  Uri uri = (Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM);
  //               Log.d("URIIIII", "Thus is" + uri.toString());
