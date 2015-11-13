@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova.plugin.rplugin"
+        version="0.0.1">
+
+  <name>Receiver Phonegap</name>
+
+  <description>
+    Share text, images etc to your phonegap app.
+  </description>
+
+
+  <license>MIT</license>
+
+
+
+
+  <engines>
+    <engine name="cordova" version=">=3.0.0"/>
+  </engines>
+
+
+  <!-- android -->
+  <platform name="android">
+    
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="ReceiverActivity">
+        <param name="android-package" value="org.example.ReceiverActivity"/>
+      </feature>
+	  <feature name="ReceiverActivityOnCreate">
+        <param name="android-package" value="org.example.ReceiverActivityOnCreate"/>
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/ReceiverActivity.java" target-dir="src/"/>
+	<source-file src="src/android/ReceiverActivityOnCreate.java" target-dir="src/"/>
+
+    <config-file target="AndroidManifest.xml" parent="/*/application/activity">
+        <intent-filter>
+          <action android:name="android.intent.action.SEND" />
+          <action android:name="android.intent.action.SEND_MULTIPLE" />
+          <category android:name="android.intent.category.DEFAULT" />
+          <data android:mimeType="text/plain" />
+          <data android:mimeType="image/*" />
+          <data android:mimeType="video/*" />
+        </intent-filter>
+  </config-file>
+  </platform>
+  
+  
+</plugin>
