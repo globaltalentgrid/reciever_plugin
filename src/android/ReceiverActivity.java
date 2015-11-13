@@ -27,7 +27,7 @@ public class ReceiverActivity extends CordovaPlugin {
     
     @Override
     public void onNewIntent(Intent intent) {
-                    this.webView.loadUrl("javascript:alert('" + A23 + "')");
+                    this.webView.loadUrl("javascript:alert('A23')");
 	String action = intent.getAction();
         String type = intent.getType();
 
